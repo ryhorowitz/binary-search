@@ -1,5 +1,16 @@
 function binarySearch(arr, target) {
   // type your code here
+  if (arr.length === 0) return false
+  const midIdx = Math.floor(arr.length / 2)
+  const mid = arr[midIdx]
+
+  if (mid === target) return true
+
+  if (mid < target) {  //go right
+    binarySearch(arr.slice(midIdx + 1), target)
+  } else { //go left
+    binarySearch(arr.slice(0, midIdx), target)
+  }
 }
 
 // BONUS: MODIFY YOUR CODE TO RETURN THE INDEX OF THE TARGET, -1 IF NOT FOUND
