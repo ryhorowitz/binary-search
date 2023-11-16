@@ -15,18 +15,28 @@ function binarySearch(arr, target) {
 
 // BONUS: MODIFY YOUR CODE TO RETURN THE INDEX OF THE TARGET, -1 IF NOT FOUND
 function binarySearchIndex(arr, target) {
+  if (arr.length === 0) return -1
+  const midIdx = Math.floor(arr.length / 2)
+  const mid = arr[midIdx]
 
+  if (mid === target) return midIdx
+
+  if (mid < target) {  //go right
+    binarySearchIndex(arr.slice(midIdx + 1), target)
+  } else { //go left
+    binarySearchIndex(arr.slice(0, midIdx), target)
+  }
 }
 
 if (require.main === module) {
   // add your own tests in here
-  console.log("Expecting: true");
-  console.log("=>", binarySearch([1, 2, 3], 3));
+  // console.log("Expecting: true");
+  // console.log("=>", binarySearch([1, 2, 3], 3));
 
-  console.log("");
+  // console.log("");
 
-  console.log("Expecting: false");
-  console.log("=>", binarySearch([3, 5, 9], 10));
+  // console.log("Expecting: false");
+  // console.log("=>", binarySearch([3, 5, 9], 10));
 
   // UNCOMMENT FOR BONUS
   // console.log("");
